@@ -1,7 +1,7 @@
 ## 升级到26才能在googleplay发布，老的版本会遇到以下问题。
 ### 1.网络方面
 
-- httpclient如果想继续使用，则使用以下版本：
+- httpclient如果想继续使用，则使用以下版本：（下载地址见统计目录 httclient全家桶）
 
 httpclient-4.3.6.jar（必须）
 httpcore-4.3.3.jar（必须）
@@ -169,5 +169,5 @@ packagingOptions {
     }
 }
 
-### 其他api变化
+### 6.其他api变化
 
