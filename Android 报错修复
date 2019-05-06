@@ -1,0 +1,16 @@
+### 1.绑定在window中的view泄漏：
+报错
+```
+E/WindowManager: android.view.WindowLeaked: Activity xxx has leaked window android.widget.TextView{c6ddcc9 I.ED..... ......ID 0,0-240,309} that was originally added here
+        at android.view.ViewRootImpl.<init>(ViewRootImpl.java:622)
+```
+问题代码：
+```
+   windowManager = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
+        windowManager.addView(textview, lp);
+```
+
+解决：在退出activity时，主动remove
+```
+windowManager.removeView(textview);
+```
