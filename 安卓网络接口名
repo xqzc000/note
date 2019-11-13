@@ -1,0 +1,83 @@
+### 注：NetworkInterface的获取，必须要开通internet和network权限，否则状态可能为空
+
+### 接口名称打印可能如下：
+
+#### 1.华为mate30，接口名称如下:(型号TAS-AL00,安卓10)
+```
+Name: ip_vti0
+NetworkInterface Name: lo
+NetworkInterface Name: rmnet6
+NetworkInterface Name: rmnet_tun10
+NetworkInterface Name: rmnet2
+NetworkInterface Name: rmnet3
+NetworkInterface Name: rmnet_r_ims10
+NetworkInterface Name: rmnet4
+NetworkInterface Name: rmnet_r_ims11
+NetworkInterface Name: rmnet5
+NetworkInterface Name: rmnet_tun14
+NetworkInterface Name: wlan0
+NetworkInterface Name: rmnet_tun13
+NetworkInterface Name: ip6tnl0
+NetworkInterface Name: rmnet_tun12
+NetworkInterface Name: rmnet0
+NetworkInterface Name: rmnet_tun11
+NetworkInterface Name: rmnet1
+NetworkInterface Name: rmnet_ims00
+NetworkInterface Name: ip6_vti0
+NetworkInterface Name: sit0
+NetworkInterface Name: rmnet_r_ims01
+NetworkInterface Name: rmnet_r_ims00
+NetworkInterface Name: rmnet_tun03
+NetworkInterface Name: p2p0
+NetworkInterface Name: rmnet_tun02
+NetworkInterface Name: Hisilicon0
+NetworkInterface Name: rmnet_tun01
+NetworkInterface Name: rmnet_tun00
+NetworkInterface Name: rmnet_ims10
+NetworkInterface Name: rmnet_tun04
+NetworkInterface Name: rmnet_emc0
+NetworkInterface Name: rmnet_emc1
+```
+
+#### 2.华为(型号PCT-AL10,安卓9)
+```
+NetworkInterface Name: dummy0
+ NetworkInterface Name: ip_vti0
+ NetworkInterface Name: lo
+ NetworkInterface Name: rmnet6
+ NetworkInterface Name: rmnet_tun10
+ NetworkInterface Name: rmnet2
+ NetworkInterface Name: rmnet3
+ NetworkInterface Name: rmnet_r_ims10
+ NetworkInterface Name: rmnet4
+ NetworkInterface Name: rmnet_r_ims11
+ NetworkInterface Name: rmnet5
+ NetworkInterface Name: rmnet_tun14
+ NetworkInterface Name: wlan0
+ NetworkInterface Name: rmnet_tun13
+ NetworkInterface Name: ip6tnl0
+ NetworkInterface Name: rmnet0
+ NetworkInterface Name: rmnet_tun12
+ NetworkInterface Name: rmnet_tun11
+ NetworkInterface Name: rmnet1
+ NetworkInterface Name: rmnet_ims00
+ NetworkInterface Name: ip6_vti0
+ NetworkInterface Name: sit0
+ NetworkInterface Name: rmnet_r_ims01
+ NetworkInterface Name: rmnet_r_ims00
+ NetworkInterface Name: rmnet_tun03
+ NetworkInterface Name: p2p0
+ NetworkInterface Name: rmnet_tun02
+ NetworkInterface Name: Hisilicon0
+ NetworkInterface Name: rmnet_tun01
+ NetworkInterface Name: rmnet_tun00
+ NetworkInterface Name: rmnet_ims10
+ NetworkInterface Name: rmnet_tun04
+ NetworkInterface Name: rmnet_emc0
+ NetworkInterface Name: rmnet_emc1
+```
+
+### 注:名称可能会变。
+如果开通了vpn，则有接口为tun0
+rmnet0 为4g网络
+wlan0 为wifi
