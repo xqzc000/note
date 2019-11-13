@@ -2,7 +2,12 @@
 
 getExternalStorageDirectory 用getExternalFilesDir（），MediaStore 或者Intent#ACTION_OPEN_DOCUMENT代替
 
+
+
 ```
+//目录如下：
+getExternalFilesDir=/storage/emulated/0/Android/data/应用包名/files/
+
     * @deprecated To improve user privacy, direct access to shared/external
      *             storage devices is deprecated. When an app targets
      *             {@link android.os.Build.VERSION_CODES#Q}, the path returned
