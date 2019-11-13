@@ -1,9 +1,0 @@
-1.外部存储
-
-2.imei 
-```
-报错：
-java.lang.SecurityException: getUniqueDeviceId: The user 10221 does not meet the requirements to access device identifiers.
-```
-
-目前可用appid代替
