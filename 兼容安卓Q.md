@@ -38,6 +38,21 @@ getExternalFilesDir=/storage/emulated/0/Android/data/应用包名/files/
 ```
 3. 非沙盒中的路径文件读写。
 ```
+1)saf,可以读写所有公共目录文件（两种方式）
+   a)类似系统文件浏览器功能，ACTION_OPEN_DOCUMENT_TREE
+   Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+   startActivityForResult(intent, REQUEST_CODE_OPEN_DIRECTORY);
+   通过getContentResolver().takePersistableUriPermission(uri, takeFlags)判断是否有权限。
+   授权目录可以保存在shareparence中。
+   
+   b）通过ACTION_CREATE_DOCUMENT或ACTION_OPEN_DOCUMENT
+   Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+   Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+   
+2）如果是媒体文件（图片，视频，音乐），可设置默认系统应用
+
+3）如果是媒体文件，可用mediastore接口（插入）
+
 ```
 
 4.扩展：webview相关缓存
