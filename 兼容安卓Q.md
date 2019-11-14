@@ -1,8 +1,6 @@
-1.外部存储
+### 一.外部存储
 
-getExternalStorageDirectory 用getExternalFilesDir（），MediaStore 或者Intent#ACTION_OPEN_DOCUMENT代替
-
-
+1.getExternalStorageDirectory 用getExternalFilesDir（），MediaStore 或者Intent#ACTION_OPEN_DOCUMENT代替
 
 ```
 //目录如下：
@@ -23,9 +21,18 @@ getExternalFilesDir=/storage/emulated/0/Android/data/应用包名/files/
         return sCurrentUser.getExternalDirs()[0];
     }
 ```  
-    
+2.  存储路径及访问情况。
 
-2.imei 
+```
+      File dir=Environment.getDownloadCacheDirectory();// /data/cache/ （无权限）
+      File dir=Environment.getDataDirectory();// /data/     （无权限）
+      File dir=Environment.getRootDirectory();// /system/ （只读）
+      File dir=Context.getFilesDir();// /data/user/0/包名/files/ (可读写)
+      Context.getExternalFilesDir=/storage/emulated/0/Android/data/应用包名/files/
+```
+#### 总结：无论是/data/还是/sdcard下，数据读写只能是在沙盒中，否则不能直接读写。
+
+二.imei 
 ```
 报错：
 java.lang.SecurityException: getUniqueDeviceId: The user 10221 does not meet the requirements to access device identifiers.
