@@ -37,6 +37,11 @@ getExternalFilesDir=/storage/emulated/0/Android/data/应用包名/files/
       注：若报错(open failed: ENOENT)，可能是文件或文件夹不存在。
 ```
 3. 非沙盒中的路径文件读写。
+##### 注意：所有非沙盒文件，可通过ContentProvider查询文件uri，然后通过文件Uri获取文件内容，不能直接通过路径读取。
+#####    如果是媒体文件，不同应用可通过mediastore接口读，不可直接修改其他应用生成的文件
+
+参考文档： https://developer.huawei.com/consumer/cn/doc/app/50127
+
 ```
 1)saf,可以读写所有公共目录文件（两种方式）
    a)类似系统文件浏览器功能，ACTION_OPEN_DOCUMENT_TREE
