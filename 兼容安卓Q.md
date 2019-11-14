@@ -23,18 +23,22 @@ getExternalFilesDir=/storage/emulated/0/Android/data/应用包名/files/
 ```  
 2.  存储路径及访问情况。
 
+#### 总结：无论是/data/还是/sdcard下，数据读写只能是在沙盒中，否则不能直接读写。
+
 ```
       File dir=Environment.getDownloadCacheDirectory();// /data/cache/ （无权限）
       File dir=Environment.getDataDirectory();// /data/     （无权限）
       File dir=Environment.getRootDirectory();// /system/ （只读）
       File dir=Context.getFilesDir();// /data/user/0/包名/files/ (可读写)
-      Context.getExternalFilesDir=/storage/emulated/0/Android/data/应用包名/files/
-      
-      
-      getApplicationInfo().dataDir；//  /data/user/0/
-      getDir()
+      Context.getExternalFilesDir("xx")=/storage/emulated/0/Android/data/应用包名/files/xx/(可读写)
+      Context.getApplicationInfo().dataDir；//  /data/user/0/包名  (可读写)
+      Context.getDir(“xx”,MODE_PRIVATE) // /data/user/0/包名/app_xx  (可读写)
+      Context.getCacheDir()// /data/user/0/包名/cache/ (可读写)
+      注：若报错(open failed: ENOENT)，可能是文件或文件夹不存在。
 ```
 3. 非沙盒中的路径文件读写。
+```
+```
 
 4.扩展：webview相关缓存
 ```
@@ -53,7 +57,7 @@ h5缓存
 通过setAppCacheMaxSize(long appCacheMaxSize)设置缓存最大容量，默认为Max Integer。
 同时，可能通过覆盖WebChromeClient.onReachedMaxAppCacheSize(long requiredStorage, long quota, WebStorage.QuotaUpdater quotaUpdater)来设置缓存超过先前设置的最大容量时的策略。
 ```
-#### 总结：无论是/data/还是/sdcard下，数据读写只能是在沙盒中，否则不能直接读写。
+
 
 
 
