@@ -42,7 +42,19 @@ getExternalFilesDir=/storage/emulated/0/Android/data/应用包名/files/
 
 参考文档： https://developer.huawei.com/consumer/cn/doc/app/50127
 
+通过uri读取代码如下：
 ```
+public static Bitmap getBitmapFromUri(Context context, Uri uri) throws IOException {
+    ParcelFileDescriptor parcelFileDescriptor =
+            context.getContentResolver().openFileDescriptor(uri, "r");
+    FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+    Bitmap image = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+    parcelFileDescriptor.close();
+    return image;
+}
+```
+#### 总结如下：非沙盒可以通过saf和置默认系统应用，contentprovider查找的uri去读取媒体文件，mediastore接口操作媒体文件
+
 1)saf,可以读写所有公共目录文件（两种方式）
    a)类似系统文件浏览器功能，ACTION_OPEN_DOCUMENT_TREE
    Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
@@ -58,7 +70,6 @@ getExternalFilesDir=/storage/emulated/0/Android/data/应用包名/files/
 
 3）如果是媒体文件，可用mediastore接口（插入）
 
-```
 
 4.扩展：webview相关缓存
 ```
