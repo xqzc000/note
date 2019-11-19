@@ -9,6 +9,12 @@
 3.手机型号，厂商，Mac地址，imei(安卓10取消了获取设备id的方法),cpu架构等
 
 
+比如：
+https://github.com/mofneko/EmulatorDetector（原理：根据常用模拟器配置来判断，如果有新的模拟器需要做适配。）
+
+
+
+
 
 
 
